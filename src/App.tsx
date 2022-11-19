@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.scss";
+import Clinic from "./components/Clinic";
+import Header from "./components/Header";
 
-function App() {
+const clinics: Clinic[] = [
+  {
+    isHome: true,
+    name: "總店",
+    address: "",
+    tel: "",
+    images: [],
+    clinicTime: {
+      monA: "林",
+      monM: "林",
+      tueA: "林",
+      tueN: "林",
+      thuM: "林",
+      thuN: "林",
+      friM: "林",
+      friA: "林",
+      satM: "林",
+    } as ClinicTime,
+  },
+];
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container">
+      <Header />
+      <div className="container">
+        <Clinic clinics={clinics} />
+      </div>
     </div>
   );
-}
+};
 
 export default App;

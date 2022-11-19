@@ -1,0 +1,16 @@
+@import "./style/reset";
+@import "./style/variables";
+@import "./style/mixin";
+@import "./style/components";
+
+html,
+body,
+#root,
+.App {
+  height: 100%;
+  font-family: custom-font-family;
+}
+
+body {
+  background-color: $fufu-quaternary;
+}
