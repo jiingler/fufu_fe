@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 type ClinicTime = {
   monM?: string;
   monA?: string;
@@ -20,6 +21,6 @@ type ClinicTime = {
   sunM?: string;
   sunA?: string;
   sunN?: string;
-}
+};
 
-type ClinicTimeOptional = Partial<ClinicTime>
+// type ClinicTimeOptional = Partial<ClinicTime>;

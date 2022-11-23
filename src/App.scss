@@ -1,5 +1,7 @@
 @import "./style/reset";
 @import "./style/variables";
+@import "./style/basic";
+@import "./style/layout";
 @import "./style/mixin";
 @import "./style/components";
 
@@ -11,6 +13,15 @@ body,
   font-family: custom-font-family;
 }
 
+.App {
+  height: unset;
+  min-height: 100%;
+}
+
 body {
   background-color: $fufu-quaternary;
+}
+
+.body {
+  padding-bottom: $footer-height;
 }
