@@ -5,13 +5,30 @@ const Header = () => {
         <div className="container">
           <div className="d-flex justify-content-between">
             <h1>福福堂</h1>
-            <ul className="d-flex">
-              <li>最新消息</li>
-              <li>醫師介紹</li>
-              <li>診所介紹</li>
-              <li>服務項目</li>
-              <li>文章分享</li>
-            </ul>
+            <div className="d-flex">
+              <ul className="menu d-flex">
+                <li>
+                  <a>最新消息</a>
+                </li>
+                <li>
+                  <a>醫師介紹</a>
+                </li>
+                <li>
+                  <a>診所介紹</a>
+                </li>
+                <li>
+                  <a>服務項目</a>
+                </li>
+                <li>
+                  <a>文章分享</a>
+                </li>
+              </ul>
+              <ul className="text-size d-flex align-items-center">
+                <li className="medium">大</li>
+                <li className="large">大</li>
+                <li className="xlarge">大</li>
+              </ul>
+            </div>
           </div>
         </div>
       </nav>

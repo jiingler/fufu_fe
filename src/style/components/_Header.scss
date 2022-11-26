@@ -3,3 +3,33 @@
   position: absolute;
   z-index: 10000;
 }
+
+.menu {
+  color: #fff;
+  li {
+    a {
+      padding: 16px 8px;
+      cursor: pointer;
+      display: block;
+      &:hover {
+        text-decoration: underline !important;
+      }
+    }
+  }
+}
+
+.text-size {
+  color: #fff;
+  li {
+    padding: 0 4px;
+  }
+  .medium {
+    font-size: 16px;
+  }
+  .large {
+    font-size: 24px;
+  }
+  .xlarge {
+    font-size: 30px;
+  }
+}

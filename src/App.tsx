@@ -4,7 +4,7 @@ import Clinic from './components/Clinic';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import MediumTitle from './components/MediumTitle';
-import News from './components/_News';
+import News from './components/News';
 
 // eslint-disable-next-line no-undef
 const clinics: Clinic[] = [
