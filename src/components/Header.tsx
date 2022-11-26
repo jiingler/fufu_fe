@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Menu from './Menu';
 
 const Header = () => {
@@ -6,7 +7,9 @@ const Header = () => {
       <nav className="py-md-5 py-2 w-100 nav">
         <div className="container wrap w-100 d-flex align-items-center">
           <div className="w-100 d-flex justify-content-between">
-            <h1>福福堂</h1>
+            <Link to="/">
+              <h1>福福堂</h1>
+            </Link>
             <div className="d-flex">
               <Menu />
             </div>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Menu = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -12,7 +13,7 @@ const Menu = () => {
     <div>
       <ul className="menu d-md-flex d-none">
         <li>
-          <a>最新消息</a>
+          <Link to="/news">最新消息</Link>
         </li>
         <li>
           <a>醫師介紹</a>
@@ -35,7 +36,7 @@ const Menu = () => {
       <div className={`phone-menu position-absolute ${showMenu ? 'show' : 'hide'}`}>
         <ul className="list">
           <li className="py-3">
-            <a>最新消息</a>
+            <Link to="/news">最新消息</Link>
           </li>
           <li className="py-3">
             <a>醫師介紹</a>

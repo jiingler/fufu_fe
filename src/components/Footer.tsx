@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="bg-primary footer">
+    <footer className="bg-secondary footer">
       <div className="container">
         <div className="logo"></div>
         <div>

@@ -1,13 +1,30 @@
-.menu {
-  color: #fff;
+.menu,
+.phone-menu {
   li {
     a {
       padding: 16px 8px;
       cursor: pointer;
       display: block;
+      text-decoration: none !important;
       &:hover {
         text-decoration: underline !important;
       }
+    }
+  }
+}
+
+.menu {
+  li {
+    a {
+      color: white !important;
+    }
+  }
+}
+
+.phone-menu {
+  li {
+    a {
+      color: black !important;
     }
   }
 }
