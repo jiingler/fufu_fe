@@ -1,19 +1,9 @@
 .nav {
-  height: 144px;
   position: absolute;
-  z-index: 10000;
-}
-
-.menu {
-  color: #fff;
-  li {
-    a {
-      padding: 16px 8px;
-      cursor: pointer;
-      display: block;
-      &:hover {
-        text-decoration: underline !important;
-      }
+  z-index: 20;
+  .container {
+    @include md {
+      max-width: unset;
     }
   }
 }
