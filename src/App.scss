@@ -1,8 +1,8 @@
 @import "./style/reset";
 @import "./style/variables";
 @import "./style/basic";
-@import "./style/layout";
 @import "./style/mixin";
+@import "./style/custom";
 @import "./style/components";
 
 html,
@@ -20,9 +20,17 @@ body,
 }
 
 body {
-  background-color: $fufu-quaternary;
+  // background-color: $fufu-quaternary;
 }
 
 .body {
   padding-bottom: $footer-height;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none !important;
+  &:hover {
+    text-decoration: underline !important;
+  }
 }

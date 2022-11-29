@@ -1,0 +1,25 @@
+.clinicSwitcher {
+  width: 200px;
+  padding: 1rem;
+  font-size: 1.5rem;
+  border: 2px solid $fufu-secondary;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  &:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+  &.active {
+    background-color: $fufu-secondary;
+    color: white;
+    font-weight: bold;
+  }
+  @include sm {
+    text-align: center;
+    width: 100px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid $fufu-secondary;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}

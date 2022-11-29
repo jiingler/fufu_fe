@@ -7,7 +7,9 @@ type Clinic = {
   tel?: string;
   images?: Image[];
   // eslint-disable-next-line no-undef
-  clinicTime: ClinicTime;
+  clinicPeriod: ClinicPeriod[];
+  // eslint-disable-next-line no-undef
+  clinicTime: Nullable<ClinicTime>;
 };
 
 // eslint-disable-next-line no-unused-vars

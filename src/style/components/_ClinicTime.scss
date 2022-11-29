@@ -1,10 +1,41 @@
 .clinic_time-table {
+  border: 2px solid $fufu-secondary;
+  .header {
+    color: #fff;
+  }
+  .body {
+    background-color: #fff;
+  }
   th,
   td {
     text-align: center;
-    padding: 8px 4px;
-    width: 60px;
-    border: 2px solid white;
+    vertical-align: middle;
+    padding: 16px 8px;
+    min-width: 80px;
+    border: 1px solid $gray-100;
     border-collapse: collapse;
+  }
+  td {
+    height: 85px;
+    &.work {
+      color: $fufu-secondary;
+    }
+    &.break {
+      color: $gray-400;
+    }
+    p.time {
+      font-size: 0.8rem;
+      &:nth-child(3) {
+        font-size: 0.5rem;
+      }
+    }
+  }
+  @include sm {
+    width: 100%;
+    th,
+    td {
+      min-width: 60px;
+      padding: 8px 2px;
+    }
   }
 }

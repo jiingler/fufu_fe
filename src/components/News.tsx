@@ -1,6 +1,6 @@
 const News = () => {
   return (
-    <div className="news bg-primary">
+    <div className="news bg-quaternary">
       <div className="container">
         <div className="row">
           <div className="col-md-6">

@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-type Image = {
+type Doctor = {
+  id: string;
   name: string;
-  url: string;
-  description: string;
 };
