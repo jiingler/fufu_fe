@@ -1,0 +1,91 @@
+.profile-image {
+  text-align: right;
+  max-height: 500px;
+  img {
+    height: 100%;
+  }
+  @include sm {
+    text-align: center;
+    height: 300px;
+    max-height: 300px;
+    img {
+      width: 100%;
+      object-fit: cover;
+      object-position: 0 -40px;
+    }
+  }
+}
+
+.doctor {
+  .clinic {
+    color: $fufu-tertiary;
+    font-size: 1.25rem;
+    p {
+      padding: 0 8px;
+      &:first-child {
+        padding-left: 0;
+      }
+      &:not(:last-child) {
+        border-right: 1px solid $fufu-tertiary;
+      }
+    }
+    @include sm {
+      font-size: 1rem;
+    }
+  }
+
+  &-name {
+    font-size: 2rem;
+    font-weight: bold;
+    @include sm {
+      font-size: 1.8rem;
+    }
+  }
+  &-position {
+    font-size: 1.5rem;
+    font-weight: normal;
+    @include sm {
+      font-size: 1.2rem;
+    }
+  }
+  &-info {
+    padding: 0.5rem;
+    @include sm {
+      .card {
+        box-shadow: 3px 3px $fufu-primary;
+      }
+    }
+  }
+  .class {
+    width: 80px;
+    display: inline-block;
+    padding: 0.5rem;
+    position: relative;
+    white-space: nowrap;
+    &:before {
+      content: "";
+      position: absolute;
+      width: 5px;
+      height: 100%;
+      top: 0;
+      left: -0.5rem;
+      background-color: $fufu-secondary;
+    }
+    @include sm {
+      text-align: center;
+      display: block;
+      width: unset;
+      border-bottom: 2px solid $fufu-secondary;
+      color: $fufu-secondary;
+      font-size: 1.2rem;
+      &:before {
+        width: 0;
+      }
+    }
+  }
+  .item {
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.2;
+  }
+}

@@ -16,7 +16,7 @@ const Menu = () => {
           <Link to="/news">最新消息</Link>
         </li>
         <li>
-          <a>醫師介紹</a>
+          <Link to="/doctors">醫師介紹</Link>
         </li>
         <li>
           <a>診所介紹</a>
@@ -39,7 +39,7 @@ const Menu = () => {
             <Link to="/news">最新消息</Link>
           </li>
           <li className="py-3">
-            <a>醫師介紹</a>
+            <Link to="/doctors">醫師介紹</Link>
           </li>
           <li className="py-3">
             <a>診所介紹</a>

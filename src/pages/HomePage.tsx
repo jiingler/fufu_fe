@@ -4,8 +4,32 @@ import SectionTitle from '../components/SectionTitle';
 
 // eslint-disable-next-line no-undef
 const doctor: Doctor = {
-  id: 'ABC000',
-  name: '林子青'
+  id: '001',
+  name: '林子青',
+  clinics: ['福福堂'],
+  position: '院長',
+  experiences: [
+    '長庚大學中西醫雙主修畢業',
+    '福山雲玖中醫診所',
+    '詠仁中醫診所院長',
+    '萬丹中醫診所醫師',
+    'C級健身教練/肌內效貼紮認證',
+    '體重管理師執照',
+    '台灣芳療協會認證',
+    '靈氣療癒師認證'
+  ],
+  expertises: [
+    '感冒、耳鼻喉疾病',
+    '急慢性運動傷害、慢性疼痛、落枕、高低肩、骨盆不正',
+    '睡眠障礙、失眠、慢性疲勞',
+    '經痛、月經不調、更年期症候群',
+    '小兒厭食、便秘、腹瀉、胃食道逆流、腸胃炎',
+    '呼吸道症候群、過敏性鼻炎、皮膚炎、濕疹',
+    '代謝性症候群、三高慢性病'
+  ],
+  specialExpertises: ['自費減重', '體重管理', '靈氣療程'],
+  image:
+    'https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
 };
 // eslint-disable-next-line no-undef
 const clinics: Clinic[] = [
@@ -47,7 +71,7 @@ const clinics: Clinic[] = [
   // }
 ];
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
       <News />
@@ -62,4 +86,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;
