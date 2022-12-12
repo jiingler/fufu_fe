@@ -28,16 +28,18 @@ const Header = () => {
 
   return (
     <header className={`nav ${y <= 10 && location.pathname === '/' ? 'transparent' : ''}`}>
-      <nav className={`py-2 w-100 ${y <= 10 ? 'py-md-5 ' : 'py-md-4'}`}>
+      <nav className={`py-2 w-100`}>
         <div className="wrap w-100 d-flex align-items-center">
           <div className="w-100 d-flex justify-content-center position-relative px-3">
             <div className="position-absolute logo">
-              <Link to="/">
-                <h1>福福堂</h1>
+              <Link title="福福堂中醫診所 Fu Fu Tang | 高雄中醫" to="/">
+                <h1 className={`${y <= 10 ? '' : 'smallScale'}`}>
+                  <a>福福堂中醫診所</a>
+                </h1>
               </Link>
             </div>
             <div className="d-flex">
-              <Menu />
+              <Menu scrollY={y} />
             </div>
           </div>
         </div>

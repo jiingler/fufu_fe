@@ -1,7 +1,12 @@
+import * as React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Menu = () => {
+type MenuProps = {
+  scrollY: number;
+};
+
+const Menu: React.FC<MenuProps> = ({ scrollY }) => {
   const [showMenu, setShowMenu] = useState(false);
 
   const onClick = () => {
@@ -11,7 +16,7 @@ const Menu = () => {
   };
   return (
     <div>
-      <ul className="menu d-md-flex d-none">
+      <ul className={`menu d-md-flex d-none ${scrollY <= 10 ? 'hightBar' : 'lowBar'}`}>
         <li>
           <Link to="/news">最新消息</Link>
         </li>

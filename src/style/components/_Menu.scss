@@ -17,8 +17,18 @@
   li {
     a {
       color: black !important;
-      font-weight: bold;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
+      transition: padding 0.5s;
+    }
+  }
+  &.hightBar {
+    a {
+      padding: 3rem 2rem;
+    }
+  }
+  &.lowBar {
+    a {
+      padding: 2rem;
     }
   }
 }
