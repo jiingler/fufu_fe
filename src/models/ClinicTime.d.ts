@@ -1,4 +1,4 @@
 // eslint-disable-next-line no-unused-vars, no-undef
-type ClinicTime = Doctor[][];
+type ClinicTime = string[][];
 
 // type ClinicTimeOptional = Partial<ClinicTime>;

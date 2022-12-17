@@ -30,15 +30,15 @@ const Header = () => {
     <header className={`nav ${y <= 10 && location.pathname === '/' ? 'transparent' : ''}`}>
       <nav className={`py-2 w-100`}>
         <div className="wrap w-100 d-flex align-items-center">
-          <div className="w-100 d-flex justify-content-center position-relative px-3">
-            <div className="position-absolute logo">
+          <div className="w-100 d-flex justify-content-between px-3">
+            <div className="logo d-flex align-items-center">
               <Link title="福福堂中醫診所 Fu Fu Tang | 高雄中醫" to="/">
                 <h1 className={`${y <= 10 ? '' : 'smallScale'}`}>
                   <a>福福堂中醫診所</a>
                 </h1>
               </Link>
             </div>
-            <div className="d-flex">
+            <div className="d-flex me-lg-5 me-0">
               <Menu scrollY={y} />
             </div>
           </div>

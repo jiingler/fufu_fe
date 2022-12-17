@@ -103,7 +103,8 @@ const DoctorsPage: React.FC<{}> = () => {
     }
   ];
 
-  const [currentClinic, setCurrentClinic] = useState(clinics[0]);
+  // eslint-disable-next-line no-undef
+  const [currentClinic, setCurrentClinic] = useState<Clinic | undefined>(clinics[0]);
   return (
     <div className="page container">
       {clinics.length > 1 && (

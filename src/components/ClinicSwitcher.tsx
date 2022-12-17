@@ -6,9 +6,9 @@ type ClinicSwitcherProps = {
   // eslint-disable-next-line no-undef
   clinics: Clinic[];
   // eslint-disable-next-line no-undef
-  currentClinic: Clinic;
+  currentClinic: Clinic | undefined;
   // eslint-disable-next-line no-undef
-  setCurrentClinic: React.Dispatch<React.SetStateAction<Clinic>>;
+  setCurrentClinic: React.Dispatch<React.SetStateAction<Clinic | undefined>>;
   isPhoneModeSelect?: boolean;
 };
 
@@ -23,7 +23,9 @@ const ClinicSwitcher: React.FC<ClinicSwitcherProps> = ({
   return (
     <>
       {clinics.map((clinic) => {
-        const isActive = currentClinic.id === clinic.id;
+        console.log(clinic);
+        console.log(currentClinic);
+        const isActive = currentClinic?.id === clinic?.id;
         return (
           <div
             className={`clinicSwitcher ${isActive ? 'active' : ''} ${
