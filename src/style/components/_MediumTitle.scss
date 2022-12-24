@@ -1,5 +1,12 @@
-.title-md {
-  font-weight: bold;
-  font-size: 24px;
-  margin: 1rem 0;
+.medium-title {
+  font-weight: 300;
+  font-size: 2rem;
+  margin: 3rem 0;
+  @include md {
+    margin: 1.5rem 0;
+    font-size: 1.8rem;
+  }
+  img {
+    height: 60px;
+  }
 }

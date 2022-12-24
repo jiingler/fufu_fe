@@ -15,7 +15,7 @@ const Menu: React.FC<MenuProps> = ({ scrollY }) => {
     root.style.overflowY = showMenu ? 'auto' : 'hidden';
   };
   return (
-    <div>
+    <nav>
       <ul className={`menu d-md-flex d-none ${scrollY <= 10 ? 'hightBar' : 'lowBar'}`}>
         <li>
           <Link to="/news">最新消息</Link>
@@ -34,11 +34,13 @@ const Menu: React.FC<MenuProps> = ({ scrollY }) => {
         </li>
       </ul>
       <div className="hamburger d-md-none d-block position-absolute" onClick={onClick}>
-        <span className={`material-icons ${showMenu ? 'black' : 'white'}`}>
-          {showMenu ? 'close' : 'menu'}
-        </span>
+        {showMenu ? (
+          <span className={`material-icons black`}>close</span>
+        ) : (
+          <span className={`material-icons ${scrollY <= 10 ? 'white' : 'black'}`}>menu</span>
+        )}
       </div>
-      <div className={`phone-menu position-absolute ${showMenu ? 'show' : 'hide'}`}>
+      <div className={`phone-menu position-absolute ${showMenu ? 'show' : 'hide'} `}>
         <ul className="list">
           <li className="py-3">
             <Link to="/news">最新消息</Link>
@@ -63,7 +65,7 @@ const Menu: React.FC<MenuProps> = ({ scrollY }) => {
         <li className="large">大</li>
         <li className="xlarge">大</li>
       </ul> */}
-    </div>
+    </nav>
   );
 };
 

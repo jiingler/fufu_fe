@@ -16,3 +16,10 @@
   margin-top: 144px;
   padding: 5rem 0;
 }
+
+.block-margin-top {
+  margin-top: 5rem;
+  @include md {
+    margin-top: 3rem;
+  }
+}
