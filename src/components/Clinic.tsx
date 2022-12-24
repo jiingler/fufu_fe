@@ -25,9 +25,8 @@ const Clinic = () => {
       setCurrentClinic({ ...clinics[0] });
     };
     fetchData();
-  });
-  console.log(clinics);
-  console.log('===', currentClinic);
+  }, []);
+
   return (
     <div className="d-flex justify-content-center flex-md-row flex-column">
       <div>

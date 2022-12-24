@@ -13,6 +13,7 @@ export class AppService {
         }
       });
     }
+
     const response = await fetch(`${this.baseUrl}/${url}${criteria ? `?${query}` : ''}`);
     return await response.json();
   }

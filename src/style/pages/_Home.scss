@@ -1,0 +1,78 @@
+.home {
+  &-bg {
+    width: 100%;
+    height: 800px;
+    background-image: url("../../assets/images/home-bg.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; // 滾動視差
+    @include xl {
+      height: 600px;
+    }
+    @include md {
+      background-attachment: scroll;
+      height: 400px;
+    }
+    position: relative;
+  }
+  &-bg-info {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 4;
+    color: white;
+  }
+  &-title {
+    font-size: 3rem;
+    font-weight: 800;
+    @include md {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+  }
+  &-subtitle {
+    font-size: 1rem;
+    @include md {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.overlay {
+  background-color: black;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  opacity: 0.2;
+  z-index: 2;
+}
+
+.services {
+  background-color: $fufu-primary;
+  width: 100%;
+  color: white;
+  .service {
+    flex-grow: 1;
+    flex-basis: 20%;
+    .image-container {
+      padding: 0 16px;
+      height: 140px;
+      width: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    p {
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: 300;
+    }
+  }
+}

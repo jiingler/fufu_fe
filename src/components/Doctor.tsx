@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 // eslint-disable-next-line no-undef
-const Doctor: React.FC<{ doctor: Doctor; key: string }> = ({ doctor, key }) => {
+const Doctor: React.FC<{ doctor: Doctor }> = ({ doctor }) => {
   return (
-    <div className="row" key={key}>
+    <div className="row">
       <div className="profile-image col-md-6 col-12 d-md-block d-none">
         <img src={doctor.image} alt="醫師形象照" />
       </div>

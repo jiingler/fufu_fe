@@ -8,7 +8,6 @@ type ClinicTimeProps = {
 
 // eslint-disable-next-line no-undef
 const ClinicTime: React.FC<ClinicTimeProps> = ({ clinicTime, clinicPeriod }) => {
-  console.log(clinicTime, clinicPeriod);
   return (
     <div className="table-container">
       <table className="clinic_time-table">
