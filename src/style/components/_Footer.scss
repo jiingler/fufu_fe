@@ -5,4 +5,56 @@
   width: 100%;
   padding: 20px 0;
   color: white;
+  @include md {
+    height: $footer-md-height;
+  }
+  .top-half {
+    padding: 40px 20px 0;
+  }
+  .logo {
+    height: 250px;
+    img {
+      height: 100%;
+    }
+    @include md {
+      display: none;
+    }
+  }
+  .links {
+    flex: auto;
+    .link {
+      flex-basis: 30%;
+      img {
+        height: 60px;
+        filter: grayscale(0);
+      }
+    }
+    h5 {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+    li {
+      font-size: 1rem;
+      a {
+        color: white;
+      }
+    }
+    @include md {
+      h5 {
+        font-size: 1.2rem;
+      }
+      li {
+        font-size: 0.9rem;
+      }
+    }
+  }
+  .bottom-half {
+    border-top: 2px solid white;
+    .copyright {
+      padding: 2rem 0;
+      @include md {
+        padding: 1rem 0;
+      }
+    }
+  }
 }
