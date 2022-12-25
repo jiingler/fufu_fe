@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 type MenuProps = {
   scrollY: number;
@@ -8,12 +9,17 @@ type MenuProps = {
 
 const Menu: React.FC<MenuProps> = ({ scrollY }) => {
   const [showMenu, setShowMenu] = useState(false);
+  const location = useLocation();
 
   const onClick = () => {
     setShowMenu(!showMenu);
     const root = document.querySelector('#root') as HTMLDivElement;
     root.style.overflowY = showMenu ? 'auto' : 'hidden';
   };
+
+  useEffect(() => {
+    console.log(scrollY);
+  }, [scrollY]);
   return (
     <nav>
       <ul className={`menu d-md-flex d-none ${scrollY <= 10 ? 'hightBar' : 'lowBar'}`}>
@@ -37,7 +43,12 @@ const Menu: React.FC<MenuProps> = ({ scrollY }) => {
         {showMenu ? (
           <span className={`material-icons black`}>close</span>
         ) : (
-          <span className={`material-icons ${scrollY <= 10 ? 'white' : 'black'}`}>menu</span>
+          <span
+            className={`material-icons ${
+              scrollY <= 10 && location.pathname === '/' ? 'white' : 'black'
+            }`}>
+            menu
+          </span>
         )}
       </div>
       <div className={`phone-menu position-absolute ${showMenu ? 'show' : 'hide'} `}>
