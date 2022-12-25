@@ -1,22 +1,18 @@
-.profile-image {
-  text-align: right;
-  max-height: 500px;
-  img {
-    height: 100%;
-  }
-  @include sm {
-    text-align: center;
-    height: 300px;
-    max-height: 300px;
+.doctor {
+  .profile-image {
+    text-align: right;
+    max-height: 500px;
     img {
-      width: 100%;
-      object-fit: cover;
-      object-position: 0 -40px;
+      height: 100%;
+    }
+    @include sm {
+      text-align: center;
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
     }
   }
-}
-
-.doctor {
   .clinic {
     color: $fufu-tertiary;
     font-size: 1.25rem;
@@ -33,7 +29,6 @@
       font-size: 1rem;
     }
   }
-
   &-name {
     font-size: 2rem;
     font-weight: bold;
@@ -49,43 +44,80 @@
     }
   }
   &-info {
-    padding: 0.5rem;
-    @include sm {
-      .card {
-        box-shadow: 3px 3px $fufu-primary;
+    background-color: $fufu-primary;
+    color: white;
+    padding: 1rem 0;
+    .info {
+      padding: 1rem 3rem;
+      flex-grow: 1;
+      flex-basis: 33%;
+      &:not(:last-child) {
+        border-right: 1px solid white;
       }
     }
-  }
-  .class {
-    width: 80px;
-    display: inline-block;
-    padding: 0.5rem;
-    position: relative;
-    white-space: nowrap;
-    &:before {
-      content: "";
-      position: absolute;
-      width: 5px;
-      height: 100%;
-      top: 0;
-      left: -0.5rem;
-      background-color: $fufu-secondary;
+    @include md {
+      .info {
+        text-align: center;
+        padding: 2rem 1rem;
+        &:not(:last-child) {
+          border-right: none;
+          border-bottom: 1px solid white;
+        }
+      }
     }
-    @include sm {
-      text-align: center;
-      display: block;
-      width: unset;
-      border-bottom: 2px solid $fufu-secondary;
-      color: $fufu-secondary;
+    .class {
       font-size: 1.2rem;
+      font-weight: 500;
+      position: relative;
+      margin-bottom: 2rem;
       &:before {
-        width: 0;
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 5px;
+        top: 30px;
+        background-color: $fufu-tertiary;
+      }
+      @include sm {
+        display: inline-block;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        &:before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          top: 25px;
+          background-color: $fufu-tertiary;
+        }
       }
     }
+    .list {
+      text-align: left;
+    }
+    .item {
+      font-size: 0.9rem;
+      padding: 0.3rem 0;
+      line-height: 1.2;
+      font-weight: 300;
+    }
   }
-  .item {
-    font-size: 0.9rem;
-    margin-bottom: 0.6rem;
-    line-height: 1.2;
+  &-expertise {
+    .expertise {
+      border: 1px solid $gray-200;
+      padding: 1rem;
+      background-color: $fufu-quaternary;
+      height: 100%;
+      .title {
+        font-weight: 500;
+        margin: 0.5rem 0 1rem;
+        font-size: 1rem;
+      }
+      .description {
+        font-weight: 300;
+        font-size: 0.9rem;
+        line-height: 1.2;
+      }
+    }
   }
 }

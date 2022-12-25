@@ -36,17 +36,19 @@ const DoctorsPage: React.FC<{}> = () => {
   }, []);
 
   return (
-    <div className="page container">
-      {clinics && clinics.length > 1 && (
-        <div className="d-flex justify-content-md-center justify-content-start my-5 text-center">
-          <ClinicSwitcher
-            currentClinic={currentClinic}
-            setCurrentClinic={setCurrentClinic}
-            clinics={clinics}
-            isPhoneModeSelect={true}
-          />
-        </div>
-      )}
+    <div className="page">
+      <div className="container">
+        {clinics && clinics.length > 1 && (
+          <div className="d-flex justify-content-md-center justify-content-start my-5 text-center">
+            <ClinicSwitcher
+              currentClinic={currentClinic}
+              setCurrentClinic={setCurrentClinic}
+              clinics={clinics}
+              isPhoneModeSelect={true}
+            />
+          </div>
+        )}
+      </div>
       {doctors && doctors.map((doctor) => <Doctor key={doctor.id} doctor={doctor} />)}
     </div>
   );

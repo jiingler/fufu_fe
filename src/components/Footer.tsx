@@ -12,9 +12,9 @@ const Footer = () => {
           <img src={logoWhiteV} alt="logo" />
         </div>
         <div className="links ms-md-3">
-          <div className="d-md-flex justify-content-between">
+          <div className="d-md-flex justify-content-around">
             <div className="link mb-md-0 mb-3">
-              <h5 className="mb-md-4 mb-3">其他連結</h5>
+              <h5 className="title">網站連結</h5>
               <ul className="list">
                 <li className="py-2">
                   <Link to="/news">最新消息</Link>
@@ -34,7 +34,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="link mb-md-0 mb-3">
-              <h5 className="mb-md-4 mb-3">聯絡資訊</h5>
+              <h5 className="title">聯絡資訊</h5>
               <ul className="list">
                 <li className="py-2">
                   <p>
@@ -50,7 +50,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="link mb-md-0 mb-3">
-              <h5 className="mb-md-4 mb-3">關注我們</h5>
+              <h5 className="title">關注我們</h5>
               <div className="d-flex">
                 <a href="" className="me-3">
                   <img src={facebook} alt="facebook" />
