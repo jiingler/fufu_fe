@@ -1,7 +1,6 @@
 import * as React from 'react';
 import MediumTitle from './MediumTitle';
 
-// eslint-disable-next-line no-undef
 const Doctor: React.FC<{ doctor: Doctor }> = ({ doctor }) => {
   const expertises = [
     {

@@ -1,41 +1,49 @@
-.clinic_time-table {
-  border: 2px solid $fufu-secondary;
-  .header {
-    color: #fff;
-  }
-  .body {
-    background-color: #fff;
-  }
-  th,
-  td {
-    text-align: center;
-    vertical-align: middle;
-    padding: 16px 8px;
-    min-width: 80px;
-    border: 1px solid $gray-100;
-    border-collapse: collapse;
-  }
-  td {
-    height: 85px;
-    &.work {
-      color: $fufu-secondary;
+.clinicTime {
+  .table {
+    border: none;
+    width: 100%;
+    .header {
+      color: #fff;
     }
-    &.break {
-      color: $gray-400;
+    .body {
+      background-color: #fff;
+      tr:nth-child(2) {
+        background-color: $fufu-quaternary;
+      }
     }
-    p.time {
-      font-size: 0.8rem;
-      &:nth-child(3) {
-        font-size: 0.5rem;
+    th,
+    td {
+      text-align: center;
+      vertical-align: middle;
+      padding: 16px 8px;
+      border-collapse: collapse;
+    }
+    td {
+      height: 85px;
+      &.work {
+        color: $fufu-secondary;
+      }
+      &.break {
+        color: $gray-400;
+      }
+      p.time {
+        font-size: 0.8rem;
+        &:nth-child(3) {
+          font-size: 0.5rem;
+        }
+      }
+    }
+    @include sm {
+      width: 100%;
+      th,
+      td {
+        min-width: 80px;
+        padding: 8px 2px;
       }
     }
   }
-  @include sm {
-    width: 100%;
-    th,
-    td {
-      min-width: 60px;
-      padding: 8px 2px;
-    }
+  .remarks {
+    font-weight: 300;
+    font-size: 0.9rem;
   }
 }

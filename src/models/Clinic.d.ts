@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 type Clinic = {
   id: string;
   isHome: boolean;
@@ -6,11 +5,8 @@ type Clinic = {
   address: string;
   tel: string;
   images: Image[];
-  // eslint-disable-next-line no-undef
   clinicPeriod: ClinicPeriod[];
-  // eslint-disable-next-line no-undef
-  clinicTime: Nullable<ClinicTime>;
+  clinicTime: ClinicTimes[];
 };
 
-// eslint-disable-next-line no-unused-vars
 // type ClinicOptional = Partial<Clinic>;

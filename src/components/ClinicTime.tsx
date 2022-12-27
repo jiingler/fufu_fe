@@ -1,17 +1,18 @@
 /* eslint-disable no-undef */
 import * as React from 'react';
+import { ClinicType } from '../models/ClinicType.enum';
 
 type ClinicTimeProps = {
-  clinicTime: string[][];
-  clinicPeriod: ClinicPeriod[] | undefined;
+  clinicTime: ClinicTimes[];
+  clinicPeriod: ClinicPeriod[];
+  doctors: Doctor[];
 };
 
-// eslint-disable-next-line no-undef
-const ClinicTime: React.FC<ClinicTimeProps> = ({ clinicTime, clinicPeriod }) => {
+const ClinicTime: React.FC<ClinicTimeProps> = ({ clinicTime, clinicPeriod, doctors }) => {
   return (
-    <div className="table-container">
-      <table className="clinic_time-table">
-        <thead className="header bg-secondary fw-bold">
+    <div className="table-container container clinicTime">
+      <table className="table">
+        <thead className="header bg-primary fw-bold">
           <tr>
             <th>星期</th>
             <th>一</th>
@@ -37,7 +38,14 @@ const ClinicTime: React.FC<ClinicTimeProps> = ({ clinicTime, clinicPeriod }) => 
                   clinicTime[period.index].map((data, idx) =>
                     data ? (
                       <td className="work fw-bold" key={idx}>
-                        <a>{data}</a>
+                        <a>
+                          {data.clinicType === ClinicType.OwnExpense
+                            ? '○'
+                            : data.clinicType === ClinicType.TimeAdjust
+                            ? '△'
+                            : ''}
+                          {doctors.find((doctor) => doctor.id === data.doctorId)?.name}
+                        </a>
                       </td>
                     ) : (
                       <td className="break" key={idx}>
@@ -49,6 +57,12 @@ const ClinicTime: React.FC<ClinicTimeProps> = ({ clinicTime, clinicPeriod }) => 
             ))}
         </tbody>
       </table>
+      <div className="d-flex justify-content-md-end justify-content-start">
+        <div className="remarks my-md-3 my-2">
+          <p className="mb-2">△: 看診時間調整為14:00-17:00</p>
+          <p>○: 自費約診</p>
+        </div>
+      </div>
     </div>
   );
 };

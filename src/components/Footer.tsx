@@ -3,8 +3,27 @@ import { Link } from 'react-router-dom';
 import facebook from '../assets/logo/fb.png';
 import instagram from '../assets/logo/instagram.png';
 import line from '../assets/logo/line.png';
+import { useEffect, useState } from 'react';
+import { AppService } from '../services/app.service';
 
 const Footer = () => {
+  const [clinic, setClinic] = useState<Clinic>();
+
+  const appService = new AppService();
+
+  const getHomeClinic = async () => {
+    return await appService.get<Clinic[]>('Clinic', null);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const clinics = await getHomeClinic();
+      const home = clinics.find((clinic) => clinic.isHome);
+      setClinic(home);
+    };
+    fetchData();
+  }, []);
+
   return (
     <footer className="bg-secondary footer">
       <div className="container top-half d-md-flex align-items-center">
@@ -39,13 +58,19 @@ const Footer = () => {
                 <li className="py-2">
                   <p>
                     代表電話：
-                    <a href="07-xxx-xxxx" type="tel">
-                      07-xxx-xxxx
-                    </a>
+                    <a href={`tel:${clinic?.tel}`}>{clinic?.tel}</a>
                   </p>
                 </li>
                 <li className="py-2">
-                  <p>代表地址：高雄市xxxxxxxxxxxxxxx</p>
+                  <p>
+                    代表地址：
+                    <a
+                      href="https://www.google.com/maps/place/807%E5%8F%B0%E7%81%A3%E9%AB%98%E9%9B%84%E5%B8%82%E4%B8%89%E6%B0%91%E5%8D%80%E8%87%AA%E7%AB%8B%E4%B8%80%E8%B7%AF279%E8%99%9F/@22.6426104,120.2961683,20.08z/data=!4m5!3m4!1s0x346e045f40f15601:0x3f5ee1b6d1e7b9d3!8m2!3d22.6427329!4d120.2961019?hl=zh-TW"
+                      target="_blank"
+                      rel="noopener noreferrer">
+                      {clinic?.address}
+                    </a>
+                  </p>
                 </li>
               </ul>
             </div>

@@ -1,17 +1,14 @@
 .clinicSwitcher {
-  width: 200px;
-  padding: 1rem;
-  font-size: 1.5rem;
-  border: 2px solid $fufu-secondary;
-  margin-right: 0.5rem;
+  display: inline-block;
+  font-size: 2rem;
   cursor: pointer;
+  font-weight: 300;
+  color: $fufu-primary;
   &:not(:last-child) {
     margin-bottom: 0.5rem;
   }
   &.active {
-    background-color: $fufu-secondary;
-    color: white;
-    font-weight: bold;
+    font-weight: 500;
   }
   &.selected {
     width: unset;
@@ -31,14 +28,16 @@
       scale: 1.5;
     }
   }
+  .logo {
+    height: 2rem;
+    transform: scale(2);
+  }
   @include sm {
     text-align: center;
-    width: 100px;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 2px solid $fufu-secondary;
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    .logo {
+      height: 1.5rem;
+    }
   }
 }
 

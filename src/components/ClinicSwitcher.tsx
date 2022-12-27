@@ -1,13 +1,11 @@
 import * as React from 'react';
 import { useState } from 'react';
 import Backdrop from './Backdrop';
+import logo from '../assets/logo/Fufutang-logo-pink-line-only-logo.svg';
 
 type ClinicSwitcherProps = {
-  // eslint-disable-next-line no-undef
   clinics: Clinic[];
-  // eslint-disable-next-line no-undef
   currentClinic: Clinic | undefined;
-  // eslint-disable-next-line no-undef
   setCurrentClinic: React.Dispatch<React.SetStateAction<Clinic | undefined>>;
   isPhoneModeSelect?: boolean;
 };
@@ -22,21 +20,22 @@ const ClinicSwitcher: React.FC<ClinicSwitcherProps> = ({
   const [isExpandOptions, setIsExpandOptions] = useState(false);
   return (
     <>
-      {clinics.map((clinic) => {
-        console.log(clinic);
-        console.log(currentClinic);
-        const isActive = currentClinic?.id === clinic?.id;
-        return (
-          <div
-            className={`clinicSwitcher ${isActive ? 'active' : ''} ${
-              isPhoneModeSelect ? 'd-md-block d-none' : ''
-            }`}
-            key={clinic.id}
-            onClick={() => setCurrentClinic(clinic)}>
-            {clinic.name}
-          </div>
-        );
-      })}
+      <div className="d-flex justify-content-center">
+        {clinics.map((clinic) => {
+          const isActive = currentClinic?.id === clinic?.id;
+          return (
+            <div
+              className={`clinicSwitcher my-md-5 my-4 ${isActive ? 'active' : ''} ${
+                isPhoneModeSelect ? 'd-md-block d-none' : 'd-flex align-items-center flex-wrap'
+              }`}
+              key={clinic.id}
+              onClick={() => setCurrentClinic(clinic)}>
+              <img className="logo me-3" src={logo} alt="logo" />
+              {clinic.name}
+            </div>
+          );
+        })}
+      </div>
       {/* 下拉式選單 限手機版 */}
       {isPhoneModeSelect && (
         <div className="w-100 d-md-none mx-3">

@@ -48,7 +48,7 @@ const HomePage = () => {
             type="primary"
             text="查看門診時間＆預約"
             isOutlined={false}
-            callback={() => navigate('/Clinic')}
+            callback={() => navigate('/Clinics')}
             iconName="arrow_circle_right"
           />
         </div>
