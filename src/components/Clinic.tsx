@@ -4,10 +4,9 @@ import MediumTitle from './MediumTitle';
 
 type ClinicProps = {
   clinic: Clinic;
-  doctors: Doctor[];
 };
 
-const Clinic: React.FC<ClinicProps> = ({ clinic, doctors }) => {
+const Clinic: React.FC<ClinicProps> = ({ clinic }) => {
   return (
     <div className="clinic">
       <div className="container block">
@@ -36,7 +35,7 @@ const Clinic: React.FC<ClinicProps> = ({ clinic, doctors }) => {
             <p className="mb-md-3 mb-2">
               診所地址：
               <a
-                href="https://www.google.com/maps/place/807%E5%8F%B0%E7%81%A3%E9%AB%98%E9%9B%84%E5%B8%82%E4%B8%89%E6%B0%91%E5%8D%80%E8%87%AA%E7%AB%8B%E4%B8%80%E8%B7%AF279%E8%99%9F/@22.6426104,120.2961683,20.08z/data=!4m5!3m4!1s0x346e045f40f15601:0x3f5ee1b6d1e7b9d3!8m2!3d22.6427329!4d120.2961019?hl=zh-TW"
+                href={`https://www.google.com/maps/place/${clinic?.address}`}
                 target="_blank"
                 rel="noopener noreferrer">
                 {clinic?.address}
@@ -56,7 +55,7 @@ const Clinic: React.FC<ClinicProps> = ({ clinic, doctors }) => {
           </div>
           <div className="googleMap">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.2963237038684!2d120.293913215419!3d22.642737836097684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e045f40f15601%3A0x3f5ee1b6d1e7b9d3!2zODA35Y-w54Gj6auY6ZuE5biC5LiJ5rCR5Y2A6Ieq56uL5LiA6LevMjc56Jmf!5e0!3m2!1szh-TW!2skr!4v1671975180670!5m2!1szh-TW!2skr"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.296456033378!2d120.29610190000001!3d22.6427329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e045f40f15601%3A0x3f5ee1b6d1e7b9d3!2zODA35Y-w54Gj6auY6ZuE5biC5LiJ5rCR5Y2A6Ieq56uL5LiA6LevMjc56Jmf!5e0!3m2!1szh-TW!2skr!4v1672839191025!5m2!1szh-TW!2skr"
               width="100%"
               height="450"
               style={{ border: 0 }}

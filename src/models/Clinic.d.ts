@@ -1,12 +1,12 @@
 type Clinic = {
   id: string;
-  isHome: boolean;
+  isHome?: boolean;
   name: string;
-  address: string;
-  tel: string;
-  images: Image[];
-  clinicPeriod: ClinicPeriod[];
-  clinicTime: ClinicTimes[];
+  address?: string;
+  tel?: string;
+  images?: Image[];
+  clinicPeriod?: ClinicPeriod[];
+  clinicTime?: ClinicTimes[];
 };
 
 // type ClinicOptional = Partial<Clinic>;
