@@ -22,7 +22,11 @@ const Menu: React.FC<MenuProps> = ({ scrollY }) => {
   }, [scrollY]);
   return (
     <nav>
-      <ul className={`menu d-md-flex d-none ${scrollY <= 10 ? 'hightBar' : 'lowBar'}`}>
+      <ul
+        className={`menu d-md-flex d-none ${
+          scrollY <= 10 && location.pathname === '/' ? 'white' : 'black'
+        }
+          ${scrollY <= 10 ? 'hightBar' : 'lowBar'}`}>
         <li>
           <Link to="/news">最新消息</Link>
         </li>

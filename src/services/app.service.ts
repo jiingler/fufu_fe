@@ -1,5 +1,5 @@
 export class AppService {
-    baseUrl = process.env.REACT_APP_API_URL as string;
+  baseUrl = process.env.REACT_APP_API_URL as string;
 
   public async get<T>(url: string, criteria: any = null): Promise<T> {
     let query = '';

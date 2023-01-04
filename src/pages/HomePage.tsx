@@ -6,6 +6,10 @@ import acupuncture from '../assets/images/acupuncture.jpg';
 import exercise from '../assets/images/exercise.jpg';
 import meditation from '../assets/images/meditation.jpg';
 import MediumTitle from '../components/MediumTitle';
+import Notice from '../components/Notice';
+import ClinicTime from '../components/ClinicTime';
+import { useEffect, useState } from 'react';
+import { AppService } from '../services/app.service';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -17,26 +21,57 @@ const HomePage = () => {
     { name: '靈氣療癒', imageUrl: meditation }
   ];
 
-  const notices = [
+  const notices: News[] = [
     {
       id: '001',
       title: '福福堂慶開幕活動',
       clinicId: 'fufu',
-      image: ''
+      imageUrl: '',
+      content: '',
+      regDate: '2022-12-24'
     },
     {
       id: '002',
       title: '掛號須知',
       clinicId: 'fufu',
-      image: ''
+      imageUrl: '',
+      content: '',
+      regDate: '2022-12-24'
     },
     {
       id: '003',
       title: '自費門診掛號',
       clinicId: 'fufu',
-      image: ''
+      imageUrl: '',
+      content: '',
+      regDate: '2022-12-24'
     }
   ];
+
+  const [clinics, setClinics] = useState<Clinic[]>([]);
+  const [currentClinic, setCurrentClinic] = useState<Clinic>();
+  const [doctors, setDoctors] = useState<Doctor[]>([]);
+
+  const appService = new AppService();
+
+  const getAllClinics = async () => {
+    return await appService.get<Clinic[]>('Clinic', null);
+  };
+
+  const getAllDoctors = async () => {
+    return await appService.get<Doctor[]>('Doctor', null);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const doctors = await getAllDoctors();
+      setDoctors([...doctors]);
+      const clinics = await getAllClinics();
+      setClinics([...clinics]);
+      setCurrentClinic({ ...clinics[0] });
+    };
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -48,47 +83,49 @@ const HomePage = () => {
             type="primary"
             text="查看門診時間＆預約"
             isOutlined={false}
-            callback={() => navigate('/Clinics')}
+            callback={() => navigate('/clinics')}
             iconName="arrow_circle_right"
           />
         </div>
         <div className="overlay"></div>
       </div>
 
-      <div className="container block-margin-top">
+      <div className="container block">
         <MediumTitle text="最新消息" color="primary" isShowLogo={true} />
-        <div className="billboard px-2">
+        <div className="px-2">
           {notices.map((notice) => (
-            <div
-              className="notice d-flex justify-content-between align-items-center py-md-4 py-3 px-md-3 px-1"
-              key={notice.id}>
-              <div>
-                <p className="notice-title">
-                  {notice.title}
-                  <span> | {notice.clinicId}</span>
-                </p>
-                <p className="notice-date mt-1">公告日期：2022-12-24</p>
+            <Notice notice={notice} key={notice.id} />
+          ))}
+        </div>
+        <div className="text-center mt-md-3 mt-2">
+          <Button
+            type="primary"
+            text="更多最新消息"
+            isOutlined={false}
+            callback={() => navigate('/news')}
+            iconName="arrow_circle_right"
+          />
+        </div>
+      </div>
+
+      <div className="services block">
+        <MediumTitle text="服務介紹" color="white" isShowLogo={true} />
+        <div className="container d-md-flex justify-content-between d-block">
+          {services.map((service, index) => (
+            <div className="service py-md-4 py-3 px-md-3 px-0" key={index}>
+              <div className="imageContainer position-relative">
+                <img src={service.imageUrl} alt={service.name} />
+                <div className="imageOverlay position-absolute"></div>
+                <p className="imageText position-absolute">{service.name}</p>
               </div>
-              <p className="notice-more">
-                查看更多<span className="material-icons ms-1">arrow_circle_right</span>
-              </p>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="services block-margin-top py-md-4 py-3">
-        <MediumTitle text="服務介紹" color="white" isShowLogo={true} />
-        <div className="container d-md-flex justify-content-between d-block">
-          {services.map((service, index) => (
-            <div className="service py-md-4 py-3" key={index}>
-              <div className="image-container px-md-3 px-0">
-                <img src={service.imageUrl} alt={service.name} />
-              </div>
-              <p className="mt-3">{service.name}</p>
-            </div>
-          ))}
-        </div>
+      <div className="container block">
+        <MediumTitle text="門診時間" color="primary" isShowLogo={true} />
+        {currentClinic && <ClinicTime clinicId={currentClinic.id} />}
       </div>
     </>
   );

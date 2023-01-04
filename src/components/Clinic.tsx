@@ -10,15 +10,11 @@ type ClinicProps = {
 const Clinic: React.FC<ClinicProps> = ({ clinic, doctors }) => {
   return (
     <div className="clinic">
-      <div className="container">
+      <div className="container block">
         <MediumTitle text="門診時間" color="primary" isShowLogo={true} />
-        <ClinicTime
-          clinicPeriod={clinic?.clinicPeriod}
-          clinicTime={clinic?.clinicTime}
-          doctors={doctors}
-        />
+        <ClinicTime clinicId={clinic.id} />
       </div>
-      <div className="clinic-philosophy bg-tertiary block-margin-top py-md-4 py-3">
+      <div className="clinic-philosophy bg-primary block">
         <div className="container">
           <MediumTitle text="診所理念" color="white" isShowLogo={true} />
           <p className="description">
@@ -29,7 +25,7 @@ const Clinic: React.FC<ClinicProps> = ({ clinic, doctors }) => {
           </p>
         </div>
       </div>
-      <div className="container block-margin-top">
+      <div className="container block">
         <MediumTitle text="交通資訊" color="primary" isShowLogo={true} />
         <div className="d-md-flex justify-content-around d-block">
           <div className="contacts mb-md-0 mb-3">

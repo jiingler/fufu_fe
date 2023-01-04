@@ -1,66 +1,89 @@
-/* eslint-disable no-undef */
 import * as React from 'react';
-import { ClinicType } from '../models/ClinicType.enum';
+import { useEffect, useState } from 'react';
+import { ClinicType, ClinicTypeText } from '../models/ClinicType.enum';
+import { AppService } from '../services/app.service';
 
 type ClinicTimeProps = {
-  clinicTime: ClinicTimes[];
-  clinicPeriod: ClinicPeriod[];
-  doctors: Doctor[];
+  clinicId: string;
 };
 
-const ClinicTime: React.FC<ClinicTimeProps> = ({ clinicTime, clinicPeriod, doctors }) => {
+type ClinicTimeData = {
+  clinicId: string;
+  clinicPeriod: ClinicPeriod[];
+  clinicTime: ClinicTimes[];
+};
+
+const ClinicTime: React.FC<ClinicTimeProps> = ({ clinicId }) => {
+  const [clinicPeriod, setClinicPeriod] = useState<ClinicPeriod[]>([]);
+  const [clinicTime, setClinicTime] = useState<ClinicTimes[]>([]);
+
+  const appService = new AppService();
+
+  const getAllClinicTime = async () => {
+    return await appService.get<ClinicTimeData>(`ClinicTime/${clinicId}`, null);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const clinicTimeData = await getAllClinicTime();
+      setClinicPeriod([...clinicTimeData.clinicPeriod]);
+      setClinicTime([...clinicTimeData.clinicTime]);
+      console.log(clinicTime[0]);
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className="table-container container clinicTime">
-      <table className="table">
-        <thead className="header bg-primary fw-bold">
-          <tr>
-            <th>星期</th>
-            <th>一</th>
-            <th>二</th>
-            <th>三</th>
-            <th>四</th>
-            <th>五</th>
-            <th>六</th>
-            <th>日</th>
-          </tr>
-        </thead>
-        <tbody className="body">
+      <div className="clinicTimeTable">
+        <div className="tableHeader fw-bold">
+          <div className="d-flex">
+            <div className="cell">星期</div>
+            <div className="cell">一</div>
+            <div className="cell">二</div>
+            <div className="cell">三</div>
+            <div className="cell">四</div>
+            <div className="cell">五</div>
+            <div className="cell">六</div>
+            <div className="cell">日</div>
+          </div>
+        </div>
+        <div className="tableBody">
           {clinicPeriod &&
             clinicPeriod?.map((period) => (
-              <tr key={period.name}>
-                <td>
-                  <p className="fw-bold mb-2">{period.name}</p>
-                  <p className="time">{period.openTime}</p>
+              <div className="d-flex" key={period?.name}>
+                <div className="clinicTime cell">
+                  <p className="fw-bold mb-2">{period?.name}</p>
+                  <p className="time">{period?.openTime}</p>
                   <p className="time my-1">|</p>
-                  <p className="time">{period.closeTime}</p>
-                </td>
+                  <p className="time">{period?.closeTime}</p>
+                </div>
                 {clinicTime &&
-                  clinicTime[period.index].map((data, idx) =>
-                    data ? (
-                      <td className="work fw-bold" key={idx}>
-                        <a>
-                          {data.clinicType === ClinicType.OwnExpense
-                            ? '○'
-                            : data.clinicType === ClinicType.TimeAdjust
-                            ? '△'
-                            : ''}
-                          {doctors.find((doctor) => doctor.id === data.doctorId)?.name}
-                        </a>
-                      </td>
+                  clinicTime[period?.index]?.map((clinicDoctorList, idx) =>
+                    clinicDoctorList?.length > 0 ? (
+                      <div className="work cell" key={idx}>
+                        {clinicDoctorList &&
+                          clinicDoctorList?.map((clinicDoctor, j) => (
+                            <a key={j}>
+                              <p className="doctorName mb-2">{clinicDoctor?.doctorName}</p>
+                              <p className="clinicType">
+                                {clinicDoctor?.clinicType === ClinicType.OwnExpense
+                                  ? `（${ClinicTypeText[ClinicType.OwnExpense]}）`
+                                  : clinicDoctor?.clinicType === ClinicType.TimeAdjust
+                                  ? `（${ClinicTypeText[ClinicType.TimeAdjust]}）`
+                                  : ''}
+                              </p>
+                            </a>
+                          ))}
+                      </div>
                     ) : (
-                      <td className="break" key={idx}>
+                      <div className="break cell" key={idx}>
                         休診
-                      </td>
+                      </div>
                     )
                   )}
-              </tr>
+              </div>
             ))}
-        </tbody>
-      </table>
-      <div className="d-flex justify-content-md-end justify-content-start">
-        <div className="remarks my-md-3 my-2">
-          <p className="mb-2">△: 看診時間調整為14:00-17:00</p>
-          <p>○: 自費約診</p>
         </div>
       </div>
     </div>
